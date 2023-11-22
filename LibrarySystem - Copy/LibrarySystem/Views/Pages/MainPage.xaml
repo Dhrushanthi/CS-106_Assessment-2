@@ -1,0 +1,184 @@
+﻿<Page x:Class="LibrarySystem.Views.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarySystem.Views.Pages"
+      xmlns:vm="clr-namespace:LibrarySystem.ViewModels.Pages" d:DataContext="{d:DesignInstance Type=vm:MainPageVM}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Header" Grid.Row="0"  Background="#00747C">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="701" Height="90" >
+                <Button>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="../../Resources/Images/logo.jpeg" Margin="22.5 0 0 0" Width="82.5" Height="82.5"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
+                <TextBlock Text="Yoobee Library System" FontFamily="Poppins" Foreground="#FFFFFF" FontSize="40" FontWeight="Bold" Margin="7"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" Height="40" Margin="0 0 10 0" >
+                <Border Margin="0 0 10 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30">
+                    <Button Content="Logout" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" Width="90" Height="25" Command="{Binding LogOut}" />
+                </Border>
+                <Border Margin="0 0 10 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30" >
+                    <Button Content="Home" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" Height="25"/>
+                </Border>
+                <Border BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30">
+                    <Button Click="Button_Click_8" Content="Profile" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" Height="25"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Main" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="#00747C" x:Name="NavigationBar"  Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Background="#00747C" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Genres" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="40" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Background="#00747C" Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Margin="0,10,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="Sci-Fi" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,50,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50">
+                            <Button Content="Fiction" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,50,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50">
+                            <Button Content="Self-Development" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2" />
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="BookDisplay" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="Display" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="center">
+                            <TextBlock Text="Top Picks" FontSize="38" FontWeight="Bold" Foreground="#00747C" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+                            <ToggleButton Content="Modify" x:Name="Modify" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#4CB486" BorderBrush="#4CB486" FontSize="20" Foreground="#FFFFFF" FontWeight="Bold" FontFamily="Poppins" Width="100" Height="50"  Visibility="Collapsed" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Margin="20">
+                            <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" HorizontalAlignment="Right" VerticalAlignment="Top" Width="130" Height="40">
+                                <Button Content="View All" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#1AADB7" BorderBrush="#1AADB7" FontSize="20" Foreground="#FFFFFF" FontWeight="Bold" FontFamily="Poppins" Width="130" Height="40" Click="Button_Click_3"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ListView x:Name="Book" SelectionMode="Single" SelectionChanged="Book_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel  Width="100" Height="220"  Margin="5" Tag="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                                            <StackPanel Height="170">
+                                                <Image Source="{Binding Image}" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="auto" Height="170"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Poppins" FontSize="14" TextAlignment="Center" TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Background="#76AAAE">
+                    <TextBlock Text="Top Recommendations" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#76AAAE"/>
+                </Grid>
+                <Grid Grid.Row="2" Background="#76AAAE">
+                    <ListView Background="#76AAAE" x:Name="BookR" SelectionChanged="BookR_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Background="#76AAAE" Width="100" Height="150"  Margin="5" Tag="{Binding ID}" >
+                                    <StackPanel Height="100">
+                                        <Image Source="{Binding Image}" Width="auto" Height="100"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Title}" FontFamily="Poppins" FontSize="14" Foreground="#FFFFFF" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+            <StackPanel Width="400" Height="400" Grid.Row="1" Grid.ColumnSpan="2"  x:Name="ChangeGenre" Background="#00747C" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+                <TextBlock Text="Genre" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="38" Margin="10" HorizontalAlignment="Center" />
+                <TextBlock x:Name="title" FontSize="16" FontFamily="Poppins" Foreground="#FFFFFF"  Margin="10" HorizontalAlignment="Center" />
+                <Border Background="#1AADB7" BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="160" Height="40">
+                    <Button Click="Button_Click_5" Content="Sci-Fi" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF" Width="160" Height="40" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <TextBlock Margin="0 5 0 0"/>
+                <Border Background="#1AADB7" BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="160" Height="40">
+                    <Button Click="Button_Click_6" Content="Fiction" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF" Width="160" Height="40" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <TextBlock Margin="0 5 0 0"/>
+                <Border Background="#1AADB7" BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="160" Height="40">
+                    <Button Click="Button_Click_7" Content="Self-Development" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF" Width="160" Height="40" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <TextBlock Margin="0 30 0 0"/>
+                <Border Background="#1AADB7" BorderBrush="#1AADB7" BorderThickness="1" CornerRadius="5" Width="80" Height="40">
+                    <Button Click="Button_Click_4" Content="Close" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Footer" Grid.Row="2" Background="#00747C">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0">
+                <Button>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="../../Resources/Images/logo.jpeg" Margin="8 0 0 0" Width="70" Height="70"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="86" Height="81" CornerRadius="75" Background="#F6FEF7" Margin="5">
+                    <TextBlock Text="Info" FontSize="14" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0,30,0">
+                <Border Width="86" Height="81" CornerRadius="75" Background="#F6FEF7" Margin="5">
+                    <TextBlock Text="Policy" FontSize="14" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

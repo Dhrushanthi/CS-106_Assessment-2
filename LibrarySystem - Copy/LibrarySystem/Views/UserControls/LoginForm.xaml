@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="LibrarySystem.Views.UserControls.LoginForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibrarySystem.Views.UserControls"
+             xmlns:vm="clr-namespace:LibrarySystem.ViewModels.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:LoginViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Username:" />
+            <TextBox x:Name="UsernameTextBox" Text="{Binding Path=UserFormRecord.Email, Mode=TwoWay}" Width="200" Margin="0,0,0,10" />
+
+            <TextBlock Text="Password:" />
+            <TextBox x:Name="PasswordBox" Text="{Binding Path=UserFormRecord.Password, Mode=TwoWay}" Width="200" Margin="0,0,0,10" />
+            <Button Content="Login" Width="100" Height="30" Command="{Binding Login}" />
+            <Button Content="Forget Password" Width="100" Height="30" Command="{Binding SwitchToChangeFormCommand}"/>
+            <Button Content="Sign Up" Width="100" Height="30" Command="{Binding SwitchToSignUpFormCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

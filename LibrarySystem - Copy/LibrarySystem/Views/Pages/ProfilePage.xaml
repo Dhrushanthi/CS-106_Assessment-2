@@ -1,0 +1,380 @@
+﻿<Page x:Class="LibrarySystem.Views.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarySystem.Views.Pages"
+      xmlns:vm="clr-namespace:LibrarySystem.ViewModels.Pages" d:DataContext="{d:DesignInstance Type=vm:ProfilePageVM}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProfilePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Header" Grid.Row="0"  Background="#00747C">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="701" Height="90" >
+                <Button Click="Button_Click_6">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="../../Resources/Images/logo.jpeg" Margin="22.5 0 0 0" Width="82.5" Height="82.5"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
+                <TextBlock Text="Yoobee Library System" FontFamily="Poppins" Foreground="#FFFFFF" FontSize="40" FontWeight="Bold" Margin="7"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" Height="40" Margin="0 0 10 0" >
+                <Border Margin="0 0 10 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30">
+                    <Button Content="Logout" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" Width="90" Height="25" Command="{Binding LogOut}" />
+                </Border>
+                <Border Margin="0 0 10 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30" >
+                    <Button Click="Button_Click_6" Content="Home" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" Height="25"/>
+                </Border>
+                <Border BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5" CornerRadius="7.5" VerticalAlignment="Center" Width="100" Height="30">
+                    <Button Content="Profile" Foreground="#FFFFFF" FontSize="15" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="2.5"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" Height="25"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Main" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="UserNav" Background="White" Grid.Column="0" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Width="250" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Quick Links" Foreground="#00747C" FontFamily="Poppins" FontSize="40" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Margin="0,10,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="On Borrow" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="Button_Click"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="Pre-booked" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="Returned" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1" />
+                        </Border>
+                    </StackPanel>
+                    <StackPanel>
+                        <Separator Margin="0,30,0,0"  Height="1" Background="#00747C"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,30,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="View Profile" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_3" />
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="AdminNav" Background="White" Grid.Column="0" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Width="250" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Quick Links" Foreground="#00747C" FontFamily="Poppins" FontSize="40" FontWeight="Bold" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Margin="0,60,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="View Books" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_5"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,30,0,0">
+                        <Border BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="250" Height="50" >
+                            <Button Content="View Users" Background="#1AADB7" BorderBrush="#1AADB7" FontFamily="Poppins" FontWeight="Bold" Foreground="#FFFFFF" FontSize="22" Width="250" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_4" />
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="BorrowDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <TextBlock Text="On Borrow" Foreground="#1AADB7" FontWeight="Bold" FontFamily="Poppins" FontSize="36"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1"  x:Name="BorrowNull"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Visibility="Collapsed">
+                    <TextBlock Text="No book has been borrowed yet!" Foreground="#1AADB7" FontWeight="Bold" FontFamily="Poppins" FontSize="36" Margin="50"/>
+                </StackPanel>
+                <ListView Grid.Row="1"  x:Name="BorrowSelection"  SelectionMode="Single" SelectionChanged="BorrowSelection_SelectionChanged" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="100" Margin="5">
+                                <StackPanel>
+                                    <Image Source="{Binding Image}" />
+                                    <TextBlock FontFamily="Poppins" FontWeight="Bold" FontSize="14" Text="{Binding Title}" TextAlignment="Center"/>
+                                    <TextBlock  FontFamily="Poppins" FontSize="12" Text="{Binding Author}" TextAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid x:Name="ReturnDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <TextBlock Text="Returned" FontWeight="Bold" Foreground="#1AADB7" FontFamily="Poppins" FontSize="36"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" x:Name="ReturnNull"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Visibility="Collapsed">
+                    <TextBlock Text="No book has been returned yet!" FontWeight="Bold" FontFamily="Poppins" FontSize="36" Foreground="#1AADB7" Margin="50"/>
+                </StackPanel>
+                <ListView Grid.Row="1" x:Name="ReturnSelection"  SelectionMode="Single" SelectionChanged="ReturnSelection_SelectionChanged" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="100" Margin="5">
+                                <StackPanel>
+                                    <Image Source="{Binding Image}" />
+                                    <TextBlock FontFamily="Poppins" FontWeight="Bold" FontSize="14" Text="{Binding Title}" TextAlignment="Center"/>
+                                    <TextBlock FontFamily="Poppins" FontSize="12" Text="{Binding Author}" TextAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid x:Name="PrebookDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <TextBlock Text="Pre-Booked" Foreground="#1AADB7" FontWeight="Bold" FontFamily="Poppins" FontSize="36"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" x:Name="PrebookNull"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Visibility="Collapsed">
+                    <TextBlock Text="No book has been pre-booked yet!" Foreground="#1AADB7" FontWeight="Bold" FontFamily="Poppins" FontSize="36" Margin="50"/>
+                </StackPanel>
+                <ListView Grid.Row="1" x:Name="PrebookSelection"  SelectionMode="Single" SelectionChanged="PrebookSelection_SelectionChanged" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="100" Margin="5">
+                                <StackPanel>
+                                    <Image Source="{Binding Image}" />
+                                    <TextBlock FontFamily="Poppins" FontWeight="Bold" FontSize="14" Text="{Binding Title}" TextAlignment="Center"/>
+                                    <TextBlock FontFamily="Poppins" FontSize="12" Text="{Binding Author}" TextAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid x:Name="ViewProfileDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <TextBlock Text="Member Profile" FontWeight="Bold" Foreground="#1AADB7" FontFamily="Poppins" FontSize="36"/>
+                </StackPanel>
+                <Border Grid.Row="1">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="Yoobee Library Member" FontSize="28" HorizontalAlignment="Center"
+                                       Foreground="#00646B"
+                                       FontWeight="ExtraBold"/>
+                        <StackPanel  Orientation="Horizontal" Margin="0,50,0,20">
+                            <Image Source="../../Resources/Images/logo.jpeg" Width="100" Height="200" Margin="0,0,10,0"/>
+                            <StackPanel>
+                                <TextBlock Text="Member ID" Width="200"  FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding UserLogin.ID}" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Name" Width="200" FontFamily="Poppins" Foreground="White" Background="#00747C" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding UserLogin.Name}" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Date of Birth" Width="200" FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding UserLogin.DateOfBirth}" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Gender" Width="200" FontFamily="Poppins" Foreground="White" Background="#00747C" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="ugender" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Join Date" Width="200" FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding UserLogin.JoinDate}" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid x:Name="ViewUsersDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontFamily="Poppins" Text="Total Users:" Foreground="#1AADB7" FontWeight="Bold" FontSize="36"/>
+                    <TextBlock Grid.Column="1" FontFamily="Poppins" Text="{Binding UsersList.Count}" Foreground="#1AADB7" FontWeight="Bold" FontSize="36" Margin="5,0,0,0"/>
+                </Grid>
+                <ListView Grid.Row="1"  x:Name="UserSelection"  SelectionMode="Single" SelectionChanged="UserSelection_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="Auto" Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="C:\Users\hendr\source\repos\LibrarySystem\LibrarySystem\Resources\Images\logo.jpeg" Width="100" Height="100" Margin="0,0,10,0"/>
+                                    <TextBlock Text=" Name:" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text=" Join Date/Time:" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="40,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding JoinDate}"  FontWeight="Bold" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid x:Name="ViewBooksDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontFamily="Poppins" Text="Total Books:" FontWeight="Bold" Foreground="#1AADB7" FontSize="36"/>
+                    <TextBlock Grid.Column="1" FontFamily="Poppins" Text="{Binding BooksList.Count}" FontWeight="Bold" Foreground="#1AADB7" FontSize="36" Margin="5,0,0,0"/>
+                </Grid>
+                <ListView Grid.Row="1"  x:Name="BookSelection"  SelectionMode="Single" SelectionChanged="BookSelection_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="Auto" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{Binding Image}" Width="100" Height="100" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text=" by " FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Author}" FontWeight="Bold" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text=" Availbility:" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" Margin="40,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Availbility}" FontWeight="Bold" FontFamily="Poppins" Foreground="#1AADB7" FontSize="24" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid x:Name="UserProfileDisplay" Grid.Column="1" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <TextBlock Text="Member Profile" FontWeight="Bold" Foreground="#1AADB7" FontFamily="Poppins" FontSize="36"/>
+                </StackPanel>
+                <Border Grid.Row="1">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="Yoobee Library Member" FontSize="28" HorizontalAlignment="Center"
+                                       Foreground="#00646B"
+                                       FontWeight="ExtraBold"/>
+                        <StackPanel  Orientation="Horizontal" Margin="0,50,0,20">
+                            <Image Source="../../Resources/Images/logo.jpeg" Width="100" Height="200" Margin="0,0,10,0"/>
+                            <StackPanel>
+                                <TextBlock Text="Member ID" Width="200"  FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="id" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Name" Width="200" FontFamily="Poppins" Foreground="White" Background="#00747C" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="name" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Date of Birth" Width="200" FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="dob" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Gender" Width="200" FontFamily="Poppins" Foreground="White" Background="#00747C" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="gender" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0">
+                                <TextBlock Text="Join Date" Width="200" FontFamily="Poppins" Foreground="White" Background="#1AADB7" FontWeight="Bold" FontSize="24" TextAlignment="Center"/>
+                                <TextBlock x:Name="join" FontSize="20" FontFamily="Poppins" Margin="0,60,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  x:Name="ChangeGenre" Background="Beige"  Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+                <TextBlock Text="Genre" FontSize="24" Margin="10" HorizontalAlignment="Center" />
+                <TextBlock x:Name="title" FontSize="16" Margin="10" HorizontalAlignment="Center" />
+                <Button  Content="Sci-Fi" Margin="10" HorizontalAlignment="Stretch" />
+                <Button Content="Fiction" Margin="10" HorizontalAlignment="Stretch" />
+                <Button  Content="Self-Development" Margin="10" HorizontalAlignment="Stretch" />
+                <Button  Content="Close" Width="50" Height="20" Margin="10" HorizontalAlignment="Right" />
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Footer" Grid.Row="2" Background="#00747C">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0">
+                <Button Click="Button_Click_6">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="../../Resources/Images/logo.jpeg" Margin="8 0 0 0" Width="70" Height="70"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="86" Height="81" CornerRadius="75" Background="#F6FEF7" Margin="5">
+                    <TextBlock Text="Info" FontSize="14" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0,30,0">
+                <Border Width="86" Height="81" CornerRadius="75" Background="#F6FEF7" Margin="5">
+                    <TextBlock Text="Policy" FontSize="14" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

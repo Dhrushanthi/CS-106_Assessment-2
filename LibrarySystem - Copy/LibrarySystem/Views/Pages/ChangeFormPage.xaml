@@ -1,0 +1,89 @@
+﻿<Page x:Class="LibrarySystem.Views.Pages.ChangeFormPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarySystem.Views.Pages"
+      xmlns:vm="clr-namespace:LibrarySystem.ViewModels.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChangeFormPage">
+    <Page.DataContext>
+        <vm:LoginViewModel/>
+    </Page.DataContext>
+    <Grid Background="#FFFFFF">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="../../Resources/Images/logo.jpeg" Width="140" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"/>
+            <Border Grid.Row="1" Grid.Column="1" Background="#00747C" BorderBrush="#00747C" BorderThickness="5" CornerRadius="15" Width="470" Height="422" >
+
+                <Grid x:Name="MainGrid"  Grid.Row="1" Grid.Column="1"  Background="#00747C " Width="470" Height="422"  VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height= "Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Margin="0,0,0,5" Grid.ColumnSpan="2">
+                        <TextBlock Margin="0 10 0 0"/>
+                        <TextBlock  Text="Reset Your Password" FontFamily="Poppins" FontSize="24" Foreground="#FFFFFF" FontWeight="Bold" HorizontalAlignment="Center" />
+                        <TextBlock Margin="0 10 0 0"/>
+                        <Label Content="Email:" FontFamily="Poppins" FontSize="14" Foreground="#FFFFFF" FontWeight="Bold" Margin="-276 0 0 0" Width="70" />
+                        <Border  BorderBrush="#FFFFFF" BorderThickness="1" CornerRadius="5" Width="340" Height="35">
+                            <TextBox x:Name="txtEmail" Text="{Binding UserFormRecord.Email}" FontFamily="Poppins" FontSize="14"  Width="340" Height="35"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Margin="0,0,0,5" Grid.ColumnSpan="2">
+                        <!-- ... Other elements ... -->
+                        <Label Content="Name:" FontFamily="Poppins" FontSize="14" Foreground="#FFFFFF" FontWeight="Bold" Margin="-276 0 0 0" Width="70" />
+                        <Border BorderBrush="#FFFFFF" BorderThickness="1" CornerRadius="5" Width="340" Height="35">
+                            <TextBox x:Name="txtName" Text="{Binding UserFormRecord.Name}" FontFamily="Poppins" FontSize="14"  Width="340" Height="35"/>
+                        </Border>
+                        <TextBlock Margin="0 10 0 0"/>
+                    </StackPanel>
+                    <Border HorizontalAlignment="Center" Grid.Row="2" BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="135" Height="35" Background="#1AADB7" >
+                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Content="Check" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="16" FontWeight="Bold" Background="#1AADB7" Width="160" Height="56"  Command="{Binding ForgetPassword}" />
+                    </Border>
+                    <StackPanel Grid.Row="3" Margin="0,0,0,5" Grid.ColumnSpan="2">
+                        <Label Content="New Password:" FontFamily="Poppins" FontSize="14" Foreground="#FFFFFF" FontWeight="Bold" Margin="-236 0 0 0" Width="110" />
+                        <Border  BorderBrush="#FFFFFF" BorderThickness="1" CornerRadius="5" Width="340" Height="35">
+                            <TextBox x:Name="txtNewPassword" Text="{Binding UserFormRecord.Password}" FontFamily="Poppins" FontSize="14" Width="340" Height="35"/>
+                        </Border>
+                        <TextBlock Margin="0 10 0 0"/>
+                        <!-- ... Other elements ... -->
+                    </StackPanel>
+
+                    <!-- ... Other elements ... -->
+
+                    <StackPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Border Grid.Row="5" BorderBrush="#1AADB7" BorderThickness="5" CornerRadius="15" Width="135" Height="35" Background="#1AADB7">
+                            <Button VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#1AADB7" Content="Submit" FontFamily="Poppins" Foreground="#FFFFFF" FontSize="16" FontWeight="Bold" Background="#1AADB7" Width="160" Height="56" x:Name="btnChange" Command="{Binding ForgetPassword}"/>
+                        </Border>
+
+                        <Border Grid.Row="5" BorderBrush="#1AADB7" Margin="50 0 0 0" BorderThickness="5" CornerRadius="15" Width="135" Height="35" Background="#1AADB7">
+                            <Button Content="Cancel" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Poppins" Foreground="#FFFFFF" FontSize="16" FontWeight="Bold" Background="#1AADB7" BorderBrush="#1AADB7" Width="160" Height="56" Command="{Binding SwitchToLoginFormCommand}"/>
+                        </Border>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
