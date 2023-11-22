@@ -1,0 +1,248 @@
+﻿<Page x:Class="LibrarySystem.Views.Pages.BookPage_1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarySystem.Views.Pages"
+      xmlns:vm="clr-namespace:LibrarySystem.ViewModels.Pages" 
+      mc:Ignorable="d" 
+   
+     d:DesignHeight="1080" d:DesignWidth="1920"
+ 
+      Title="BookPage" Background="#FFFFFF">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header" Grid.Row="0" Background="#00747C" Width="1920">
+
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="1403" Height="180" >
+
+                <Button>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/Images/Yoobee1.png" Margin="45 0 0 0" Width="165" Height="165"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 160 0">
+                <TextBlock Text="Yoobee Library System" FontFamily="Poppins" Foreground="#FFFFFF" FontSize="50" FontWeight="Bold" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Width="600" Height="60" Margin="0 0 15 0" >
+
+                <Border Margin="0 0 15 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5" CornerRadius="15" VerticalAlignment="Center" Width="180" Height="50">
+                    <Button Content="Logout" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5" Width="180" Height="50" Command="{Binding LogOut}" />
+
+                </Border>
+
+                <Border Margin="0 0 15 0" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5" CornerRadius="15" VerticalAlignment="Center" Width="180" Height="50" >
+                    <Button Content="Notification" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="180" Height="50"/>
+                </Border>
+
+                <Border BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5" CornerRadius="15" VerticalAlignment="Center" Width="180" Height="50">
+                    <Button Content="UserProfile" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" BorderBrush="#1AADB7" Background="#1AADB7" BorderThickness="5"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="180" Height="50"/>
+                </Border>
+
+            </StackPanel>
+        </Grid>
+
+
+
+        <Grid x:Name="Main" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#F0F0F0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="BookImage" Source="/Images/APromiseUnmade.jpg" Grid.Row="0" Margin="0 60 0 0" Width="290" Height="400"/>
+                <Grid Grid.Row="1" Margin="50 0 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Margin="10 0 0 100" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Width="200" Height="30" Text="Book Availability:" Grid.Column="1" />
+
+                        <TextBlock Margin="20 0 0 100" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Width="40" Height="40" x:Name="BookAvailbilty" Grid.Column="0" Visibility="Visible"/>
+
+                        <TextBox Margin="-40 0 0  100" Background="#F0F0F0" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Width="40" Height="40"  Text="{Binding Path=ChangedForm.Availbility, Mode=TwoWay}" x:Name="BookAvailbilityBox" Grid.Column="1" Visibility="Visible"/>
+                    </StackPanel>
+
+
+                </Grid>
+
+            </Grid>
+
+
+            <Grid Grid.Column="1" Background="#F0F0F0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border BorderBrush="#4CB486" BorderThickness="5" CornerRadius="15" Width="150" Height="40" HorizontalAlignment="left" VerticalAlignment="Center" Margin="50 0 0 0">
+                    <StackPanel x:Name="Modify" HorizontalAlignment="left" VerticalAlignment="Center" Visibility="Visible">
+                        <ToggleButton x:Name="ModifyButton" Click="ToggleButton_Click" Content="Modify" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#4CB486" Width="150" Height="40" Margin="-5 0 0 0" Checked="ModifyButton_Checked"/>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel x:Name="BookExist" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 90 0" Visibility="Visible">
+                    <Border BorderBrush="#4CB486" BorderThickness="5" CornerRadius="15" Width="150" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Command="{Binding SaveUpdate}" Content="Update" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#4CB486" BorderBrush="#4CB486" VerticalAlignment="Center" Width="150" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+
+                    <Border BorderBrush="#4CB486" BorderThickness="5" CornerRadius="15" Width="150" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0">
+                        <Button Command="{Binding DeleteBook}" Content="Delete Book" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#4CB486"  BorderBrush="#4CB486" VerticalAlignment="Center" Width="150" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+                </StackPanel>
+
+
+
+
+                <StackPanel x:Name="BookNotExist" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
+                    <Border BorderBrush="#4CB486" BorderThickness="5" CornerRadius="15" Width="150" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0">
+                        <Button Command="{Binding SaveUpdate}" Content="Update" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#4CB486"  BorderBrush="#4CB486" VerticalAlignment="Center" Width="150" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+                    <Border BorderBrush="#4CB486" BorderThickness="5" CornerRadius="15" Width="150" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 180 0">
+                        <Button Command="{Binding AddBook}" Content="Add Book" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#4CB486"  BorderBrush="#4CB486" VerticalAlignment="Center" Width="150" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel x:Name="Booking" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Margin="110 0 0 0">
+                    <Border BorderBrush="#AAEEF3" BorderThickness="5" Background="#AAEEF3" CornerRadius="15" Width="180" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <DatePicker SelectedDate="{Binding Path=BookForm.Borrow, Mode=TwoWay}" Background="#AAEEF3" FontFamily="Poppins" Width="150" Margin="0 0 0 0"/>
+                    </Border>
+                    <Border BorderBrush="#AAEEF3" BorderThickness="5" CornerRadius="15" Width="180" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="170 0 0 0">
+                        <Button Content="Booking" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#AAEEF3"  BorderBrush="#AAEEF3" VerticalAlignment="Center" Command="{Binding Booking}" Width="180" Height="40"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel x:Name="Returning" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="Visible">
+                    <Border BorderBrush="#AAEEF3" BorderThickness="5" Background="#AAEEF3" CornerRadius="15" Width="180" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 90 0">
+                        <Button Content="Return" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#AAEEF3"  BorderBrush="#AAEEF3" VerticalAlignment="Center" Command="{Binding Returning}" Width="150" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel x:Name="Canceling" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                    <Border BorderBrush="#AAEEF3" BorderThickness="5" CornerRadius="15" Width="180" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="Cancel Pre-Book" FontFamily="Poppins" FontSize="20" FontWeight="Bold" Background="#AAEEF3"  BorderBrush="#AAEEF3" VerticalAlignment="Center" Command="{Binding Canceling}" Width="180" Height="40" Margin="0 0 0 0"/>
+                    </Border>
+                </StackPanel>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="384*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="550"/>
+                        <!--<ColumnDefinition Width="355"/>-->
+                        <ColumnDefinition Width="546"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Margin="0 0 0 0" Width="450" Height="380" >
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Width="350" Text="Book Title :" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Margin="-50 0 0 0 "/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+
+                        <TextBlock x:Name="BookTitle" FontFamily="Poppins" FontSize="20" Margin="0 -3 0 0" Width="450" Height="50" TextWrapping="Wrap" Visibility="Visible"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+
+                        <TextBlock Width="350" Text="Book Year :" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Margin="-50 0 0 0 "/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+
+                        <TextBlock x:Name="BookYear" FontFamily="Poppins" FontSize="20" Margin="0 5 0 0" Width="450" Height="50" TextWrapping="Wrap" Visibility="Visible"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+
+                        <TextBlock Width="350" Text="Book Author :" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Margin="-50 0 0 0 "/>
+                        <TextBlock Margin="0 0 0 0"/>
+
+                        <TextBlock x:Name="BookAuthor" FontFamily="Poppins" FontSize="20" Margin="0 5 0 0" Width="450" Height="50" TextWrapping="Wrap" Visibility="Visible"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="Edit" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Width="500" Height="500"  Visibility="Visible" >
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBox x:Name="BookTitleBox" Text="{Binding Path=ChangedForm.Title, Mode=TwoWay}" Background="#F0F0F0" FontFamily="Poppins" FontSize="20" Margin="5,50,5,0" Width="450" Height="50" TextWrapping="Wrap"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBox x:Name="BookYearBox" Text="{Binding Path=ChangedForm.Year, Mode=TwoWay}" Background="#F0F0F0" FontFamily="Poppins" FontSize="20" Margin="5,50,5,0" Width="450" Height="50" TextWrapping="Wrap"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBox x:Name="BookAuthorBox" Text="{Binding Path=ChangedForm.Author, Mode=TwoWay}" Background="#F0F0F0" FontFamily="Poppins" FontSize="20" Margin="5,50,5,0" Width="450" Height="50" TextWrapping="Wrap"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                        <TextBlock Margin="0 0 0 0"/>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="1" Width="950" Height="540" Margin="3,0,-2,51" Grid.ColumnSpan="2" >
+                        <TextBlock Text="Book Description :" Width="500" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+
+                        <TextBlock x:Name="BookDescription"  FontFamily="Poppins" FontSize="16" Margin="-60 5 0 0" TextWrapping="Wrap" Width="900" Height="480" Visibility="Visible"/>
+
+                    </StackPanel>
+
+
+
+                    <StackPanel x:Name="Edit1" VerticalAlignment="Top" Grid.Column="1" Visibility="Visible" Margin="0,0,-353,0" HorizontalAlignment="Left" Width="900">
+
+                        <TextBox x:Name="BookDescriptionBox" Text="{Binding Path=ChangedForm.Description, Mode=TwoWay}" Background="#AAEEF3" FontSize="14" Margin="5,60,5,0" Width="890" Height="480" TextWrapping="Wrap" TextChanged="BookDescriptionBox_TextChanged"/>
+
+                    </StackPanel>
+
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="Footer" Grid.Row="2" Background="#1AADB7">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100,0,0,0">
+                <Button>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="/Images/Yoobee1.png" Margin="17 0 0 0" Width="140" Height="140"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="172" Height="162" CornerRadius="150" Background="#F6FEF7" Margin="10">
+                    <TextBlock Text="Info" FontSize="28" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,100,0">
+                <Border Width="172" Height="162" CornerRadius="150" Background="#F6FEF7" Margin="10">
+                    <TextBlock Text="Policy" FontSize="28" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Page>
