@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBModel2StoreContainer" CdmEntityContainer="BorrowedEntities">
+    <EntitySetMapping Name="borroweds">
+      <EntityTypeMapping TypeName="DBModel2.borrowed">
+        <MappingFragment StoreEntitySet="borrowed">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="Borrow" ColumnName="Borrow" />
+          <ScalarProperty Name="Return" ColumnName="Return" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
