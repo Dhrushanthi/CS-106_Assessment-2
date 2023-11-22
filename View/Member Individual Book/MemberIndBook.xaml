@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="LIS1.View.MemberIndBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="724" d:DesignWidth="1060">
+
+    <Grid Background="#F5F5F5">
+
+        <Image Source="Images/GoodVibesGoodLife.jpg" Width="289" Height="398" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+
+        <Grid Margin="25 0 0 220" >
+            <Border Background="#FFFFFF" BorderThickness="5" BorderBrush="#FFFFFF" CornerRadius="15" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20" Height="60">
+                <StackPanel Width="220" Orientation="Horizontal" HorizontalAlignment="Center" Background="#FFFFFF">
+                    <TextBlock Text="Copies Available" Foreground="#000000" FontSize="20" FontFamily="Poppins" VerticalAlignment="Center" Margin="5,0,15,0"/>
+                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="5" Width="50" VerticalAlignment="Center">
+                        <TextBox Text="1" Foreground="#000000" FontSize="20" FontFamily="Poppins" TextAlignment="Center" Padding="5"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+      
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,10,10,10">
+            
+                <TextBlock Margin="0 5 0 0"/>
+            <TextBlock Text="Book Title:" Foreground="#000000" FontWeight="Bold" FontSize="24" FontFamily="Poppins"/>
+            <TextBlock Text="Good Vibes Good Life" Foreground="#000000" FontSize="20" FontFamily="Poppins"/>
+            <TextBlock Margin="0 5 0 0"/>
+            <TextBlock Text="Author Name:" Foreground="#000000" FontSize="24" Margin="0,5,0,0" FontWeight="Bold" FontFamily="Poppins"/>
+            <TextBlock Text="Vex King" Foreground="#000000" FontSize="20" Margin="0,5,0,0" FontFamily="Poppins"/>
+            <TextBlock Margin="0 5 0 0"/>
+
+
+            <Border BorderBrush="#AAEEF3" BorderThickness="5" CornerRadius="15" Margin="10">
+                <StackPanel>
+                    <TextBlock Height="40" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Background="#AAEEF3" Text="Book Description:"/>
+                    <TextBlock LineHeight="18" Foreground="#000000" Height="380" FontFamily="Poppins" Background="#AAEEF3" TextWrapping="Wrap" 
+               Text="Vex King is leading a revolution for the next generation of spiritual seekers. An online inspiration to hundreds of thousands of people, Vex is a role model for young people seeking a new way of living. Vex beat all the odds of an incredibly difficult childhood - his family were often homeless and he suffered racist abuse in a violent neighbourhood. Despite these challenges, Vex went on to complete university and thrive in his career. His work brought him into contact with people who started asking him for life advice and Vex began sharing his ideas through social media. His positive and encouraging posts very quickly began to attract a highly engaged following who related to his messages and looked to Vex for guidance.&#x0a;&#x0a;This book is a collection of Vex's most popular wisdom. It is a guide to transforming negative emotions to positive ones, developing self-love, mind mastery, and goal setting, and finding a deeper purpose in life. On social media, Vex is asked the same questions over and over again. This book is the answer to these key questions which Vex has collected over the years: - How have you become so positive and happy, especially after such a devastating upbringing - and how can I do the same?
+- How do I transform negative emotions into positive ones?&#x0a;&#x0a;
+- How can I truly love myself, and what does it mean?&#x0a;
+- How should I handle negative people, especially my loved ones?&#x0a;
+- Why aren't my goals manifesting?&#x0a;
+- Why doesn't life always go to plan?&#x0a;
+- What is my purpose in life and how do I find it?&#x0a;
+- What is the true meaning of happiness?&#x0a;&#x0a; Good Vibes, Good Life shares deep spiritual knowledge in a way that's easy to understand, while providing practical solutions. Down-to-earth and relatable, this book is for those seeking a way out of darkness and the tools to build a new life.
+                               
+          "/>
+                </StackPanel>
+            </Border>
+
+
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                <Border BorderBrush="#AAEEF3" BorderThickness="5" CornerRadius="15">
+                    <Button Width="372" Height="64.66" BorderBrush="#AAEEF3" Background="#AAEEF3" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Prebook" VerticalAlignment="Center" Margin="5 0" FontFamily="Poppins" FontSize="20" Foreground="#000000"/>
+                            <DatePicker Width="100"  SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                        </StackPanel>
+                    </Button>
+                    
+                </Border>
+                <Border Background="#AAEEF3" Margin="140 0 0 0" BorderBrush="#AAEEF3" BorderThickness="5" Width="185" Height="73" CornerRadius="15">
+                    <Button Content="Mark as Returned" Width="185" Height="73" Margin="0 0 0 0" BorderBrush="#AAEEF3" Background="#AAEEF3" FontFamily="Poppins" FontSize="18" Foreground="#000000" Click="Button_Click"/>
+                </Border>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>
+
+
+    
